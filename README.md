@@ -24,7 +24,7 @@ Troubleshooting:
    ```
 - If the system isn't detecting USB drives, check the udev rule and systemd service for any errors.
 - Ensure all paths in the scripts and service files are correct, especially if you've moved files to different locations.
-- Check system logs for any errors: `sudo journalctl -f`
+- Check system logs for any errors: `sudo journalctl -u 'usbdump@*' -f`
 - to manually mount/unmount a drive using udevil:
    ```
    udevil mount /dev/sda1

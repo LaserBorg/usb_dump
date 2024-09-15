@@ -27,12 +27,17 @@ sudo cp "$USBDUMP_DIR/usbdump@.service" /etc/systemd/system/
 chmod +x "$USBDUMP_DIR/usbdump.sh"
 chmod +x "$USBDUMP_DIR/usbdump.py"
 
-# Set the environment variable
-echo "export USBDUMP_DIR=$USBDUMP_DIR" >> ~/.bashrc
-source ~/.bashrc
+# Set the environment variable system-wide
+echo "USBDUMP_DIR=$USBDUMP_DIR" | sudo tee -a /etc/environment
+
+# Also set it for the current session
+export USBDUMP_DIR=$USBDUMP_DIR
+
+# Update the systemd service file to use the environment variable
+sudo sed -i 's|ExecStart=.*|ExecStart=/bin/sh -c '\''/usr/bin/udevil mount /dev/%I > /tmp/usbdump.log 2>\&1 \&\& $USBDUMP_DIR/usbdump.sh /dev/%I'\''|' /etc/systemd/system/usbdump@.service
 
 # Reload udev rules and the systemd daemon
 sudo udevadm control --reload-rules && sudo udevadm trigger
 sudo systemctl daemon-reload
 
-echo "Installation complete. Please reboot your system."
+echo "Installation complete. USBDUMP_DIR set to $USBDUMP_DIR. Please reboot your system for changes to take effect."
