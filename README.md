@@ -7,7 +7,7 @@ The script installs **udevil** to mount USB devices since console-based OS (RPiO
    cd /home/pi
    git clone https://github.com/LaserBorg/usb_dump
    cd usb_dump
-   chmod +x install.sh && ./install.sh
+   chmod +x install.sh && ./install.sh "$(pwd)"
    ```
 
 2. Edit the JSON configuration file:
@@ -20,8 +20,6 @@ The script installs **udevil** to mount USB devices since console-based OS (RPiO
       "target_root_directory": "backup"
    }
    ```
-
-
 
 Note: The log file is located at `/tmp/usbdump.log`. If you want to change this, you'll need to update the `LOG_FILE` variable in the `usbdump.sh` script.
 
