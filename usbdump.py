@@ -30,11 +30,11 @@ def backup_directories(config, mount_point):
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print("Usage: python3 usb_dump.py <mount_point>")
+        print("Usage: python3 usbdump.py <mount_point>")
         sys.exit(1)
 
     mount_point = sys.argv[1]
-    config_path = os.path.join(os.path.dirname(__file__), 'usb_dump.json')
+    config_path = os.path.join(os.path.dirname(__file__), 'usbdump.json')
 
     if not os.path.exists(config_path):
         print(f"Configuration file {config_path} not found")

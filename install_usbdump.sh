@@ -26,15 +26,15 @@ git clone https://github.com/LaserBorg/usb_dump "$INSTALL_DIR/usb_dump"
 REPO_DIR="$INSTALL_DIR/usb_dump"
 
 # Copy udev rule and systemd service to their target folders
-sudo cp "$REPO_DIR/99-usb_dump.rules" /etc/udev/rules.d/
-sudo cp "$REPO_DIR/usb_dump@.service" /etc/systemd/system/
+sudo cp "$REPO_DIR/99-usbdump.rules" /etc/udev/rules.d/
+sudo cp "$REPO_DIR/usbdump@.service" /etc/systemd/system/
 
 # Make the wrapper and Python scripts executable
-chmod +x "$REPO_DIR/usb_dump.sh"
-chmod +x "$REPO_DIR/usb_dump.py"
+chmod +x "$REPO_DIR/usbdump.sh"
+chmod +x "$REPO_DIR/usbdump.py"
 
 # Set the environment variable
-echo "export USB_DUMP_DIR=$REPO_DIR" >> ~/.bashrc
+echo "export USBDUMP_DIR=$REPO_DIR" >> ~/.bashrc
 source ~/.bashrc
 
 # Reload udev rules and the systemd daemon

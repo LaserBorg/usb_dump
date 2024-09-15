@@ -1,0 +1,10 @@
+[Unit]
+Description=Mount USB Drive on %i using udevil and run usbdump.sh
+BindsTo=dev-%i.device
+After=dev-%i.device
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+User=pi
+ExecStart=/bin/sh -c '/usr/bin/udevil mount /dev/%I > /tmp/usbdump-%I.log 2>&1 && $USBDUMP_DIR/usbdump.sh /dev/%I'

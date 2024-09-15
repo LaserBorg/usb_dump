@@ -1,6 +1,6 @@
 #!/bin/bash
-LOG_FILE="/tmp/usb_detector.log"
-PYTHON_SCRIPT="$USB_DUMP_DIR/usb_dump.py"
+LOG_FILE="/tmp/usbdump.log"
+PYTHON_SCRIPT="$USBDUMP_DIR/usbdump.py"
 
 echo "$(date): Script started for device $1" >> "$LOG_FILE"
 

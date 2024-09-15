@@ -11,12 +11,12 @@ Enter your target directory and run the installer script:
    ./install.sh "$(pwd)"
    ```
 
-Note: The log file is located at `/tmp/usb_detector.log`. If you want to change this, you'll need to update the `LOG_FILE` variable in the `usb_dump.sh` script.
+Note: The log file is located at `/tmp/usbdump.log`. If you want to change this, you'll need to update the `LOG_FILE` variable in the `usbdump.sh` script.
 
 Troubleshooting:
 - Check the log file:
    ```
-   tail -f /tmp/usb_detector.log
+   tail -f /tmp/usbdump.log
    ```
 - If the system isn't detecting USB drives, check the udev rule and systemd service for any errors.
 - Ensure all paths in the scripts and service files are correct, especially if you've moved files to different locations.
