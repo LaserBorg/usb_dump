@@ -1,0 +1,1 @@
+ACTION=="add", SUBSYSTEM=="block", KERNEL=="sd[a-z][0-9]", TAG+="systemd", ENV{SYSTEMD_WANTS}="usb_dump@%k.service usb-detector@%k.service", RUN+="/bin/sh -c 'echo udev rule triggered for %k >> /tmp/udev-trigger.log'"

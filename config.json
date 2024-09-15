@@ -1,0 +1,7 @@
+{
+    "source_directories": [
+        "/home/pi/source_dir1",
+        "/home/pi/source_dir2"
+    ],
+    "target_root_directory": "backup"
+}
