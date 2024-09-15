@@ -2,12 +2,13 @@
 
 The script installs **udevil** to mount USB devices since console-based OS (RPiOS lite) do not mount them automatically.  
 
-1. Enter your target directory, clone the repository and run the installer:
-
+1. Enter the target directory, clone the repository and run the installer:
+   ```
    cd /home/pi
    git clone https://github.com/LaserBorg/usb_dump
    cd usb_dump
    chmod +x install.sh && ./install.sh
+   ```
 
 2. Edit the JSON configuration file:
    ```
