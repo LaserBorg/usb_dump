@@ -1,14 +1,14 @@
 [Unit]
-Description=Mount USB Drive on %i using udevil and run usbdump.sh
+Description=Run usbdump.sh for USB drive on %i
 BindsTo=dev-%i.device
 After=dev-%i.device
 
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-User=pi
+User=root
 EnvironmentFile=/etc/environment
-ExecStart=/bin/sh -c '/usr/bin/udevil mount /dev/%I > /tmp/usbdump.log 2>&1 && $USBDUMP_DIR/usbdump.sh /dev/%I'
+ExecStart=/bin/bash -c 'source /etc/environment && $USBDUMP_DIR/usbdump.sh %I'
 
 [Install]
 WantedBy=multi-user.target
