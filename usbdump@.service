@@ -7,4 +7,4 @@ After=dev-%i.device
 Type=oneshot
 RemainAfterExit=yes
 User=pi
-ExecStart=/bin/sh -c '/usr/bin/udevil mount /dev/%I > /tmp/usbdump-%I.log 2>&1 && $USBDUMP_DIR/usbdump.sh /dev/%I'
+ExecStart=/bin/sh -c '/usr/bin/udevil mount /dev/%I > /tmp/usbdump.log 2>&1 && $USBDUMP_DIR/usbdump.sh /dev/%I'
