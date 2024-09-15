@@ -10,16 +10,10 @@ The script installs **udevil** to mount USB devices since console-based OS (RPiO
    chmod +x install.sh && ./install.sh "$(pwd)"
    ```
 
-2. Edit the JSON configuration file:
-   ```
-   {
-      "source_directories": [
-         "/home/pi/source_dir1",
-         "/home/pi/source_dir2"
-      ],
-      "target_root_directory": "backup"
-   }
-   ```
+2. Create the config file:
+    ```
+    echo '{"source_directories": ["/home/pi/Documents"], "target_root_directory": "Documents"}' > usbdump.json
+    ```
 
 Note: The log file is located at `/tmp/usbdump.log`. If you want to change this, you'll need to update the `LOG_FILE` variable in the `usbdump.sh` script.
 
