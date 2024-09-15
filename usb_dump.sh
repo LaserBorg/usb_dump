@@ -29,6 +29,11 @@ for i in $(seq 1 $MAX_WAIT); do
         /usr/bin/python3 "$PYTHON_SCRIPT" "$MOUNT_POINT" >> "$LOG_FILE" 2>&1
         
         echo "$(date): Python script execution completed" >> "$LOG_FILE"
+        
+        # Unmount the device
+        echo "$(date): Unmounting device $1" >> "$LOG_FILE"
+        /usr/bin/udevil umount "/dev/$1" >> "$LOG_FILE" 2>&1
+        
         exit 0
     fi
     

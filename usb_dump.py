@@ -34,7 +34,7 @@ if __name__ == "__main__":
         sys.exit(1)
 
     mount_point = sys.argv[1]
-    config_path = os.path.join(os.path.dirname(__file__), 'config.json')
+    config_path = os.path.join(os.path.dirname(__file__), 'usb_dump.json')
 
     if not os.path.exists(config_path):
         print(f"Configuration file {config_path} not found")

@@ -40,6 +40,5 @@ source ~/.bashrc
 # Reload udev rules and the systemd daemon
 sudo udevadm control --reload-rules && sudo udevadm trigger
 sudo systemctl daemon-reload
-sudo systemctl restart usb_dump@.service
 
 echo "Installation complete. Please reboot your system."
